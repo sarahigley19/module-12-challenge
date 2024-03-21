@@ -1,5 +1,6 @@
 const inquirer = require('inquirer');
 const mysql = require("mysql2");
+const logo = require("asciiart-logo");
 
 const connection = mysql.createConnection({
 	host: 'localhost',
@@ -16,6 +17,8 @@ connection.connect((err) => {
 });
 
 const employee_tracker_db = function () {
+	const logoText = logo({ name: "Employee Tracker" }).render()
+	console.log(logoText);
 	inquirer.prompt([{
 		type: 'list',
 		name: 'prompt',
